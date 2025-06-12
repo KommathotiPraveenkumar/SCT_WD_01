@@ -1,0 +1,245 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Fixed Navigation Menu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  /* Reset */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: #374151; /* neutral gray 700 */
+    line-height: 1.6;
+ }
+  /* Container for content to show scroll */
+  .content {
+    max-width: 1200px;
+    margin: 120px auto 1000px; /* margin top to show nav fixed */
+    padding: 0 24px;
+  }
+  /* Navigation styles */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 1000;
+    backdrop-filter: saturate(180%) blur(10px);
+  }
+
+ /* Scrolled state */
+  header.scrolled {
+    background-color: #f9fafb;
+    box-shadow: 0 2px 8px rgba(31, 41, 55, 0.1);
+  }
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+  /* Logo */
+  .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #111827; /* neutral 900 */
+    letter-spacing: -0.025em;
+    user-select: none;
+    cursor: default;
+  }
+
+ /* Nav menu */
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+
+nav li {
+    position: relative;
+  }
+
+ nav a {
+    text-decoration: none;
+    color: #374151; /* neutral 700 */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+    cursor: pointer;
+  }
+
+ /* Hover style */
+  nav a:hover,
+  nav a:focus {
+    color: #2563eb; /* blue-600 */
+    outline-offset: 2px;
+    outline-color: #2563eb;
+    outline-style: dotted;
+  }
+
+ /* Underline effect on hover */
+  nav a::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 0%;
+    left: 0;
+    bottom: 0;
+    background: #2563eb;
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+
+ nav a:hover::after,
+  nav a:focus::after {
+    width: 100%;
+  }
+
+ /* Scroll changed nav item color */
+  header.scrolled nav a {
+    color: #1f2937; /* neutral 800 */
+  }
+
+
+header.scrolled nav a:hover,
+  header.scrolled nav a:focus {
+    color: #2563eb;
+  }
+
+ /* Responsive: simple - stack on small screens */
+  @media screen and (max-width: 640px) {
+    .nav-container {
+      padding: 12px 16px;
+    }
+    nav ul {
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  }
+
+</style>
+</head>
+<body>
+<header id="page-header" role="banner" aria-label="Primary navigation">
+  <div class="nav-container">
+    <div class="logo" aria-current="page" tabindex="0">MyBrand</div>
+    <nav>
+      <ul role="menubar" aria-label="Main menu">
+        <li role="none"><a href="#" role="menuitem" tabindex="0">Home</a></li>
+        <li role="none"><a href="#" role="menuitem" tabindex="0">Docs</a></li>
+        <li role="none"><a href="#" role="menuitem" tabindex="0">Blog</a></li>
+        <li role="none"><a href="#" role="menuitem" tabindex="0">About</a></li>
+        <li role="none"><a href="#" role="menuitem" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="content">
+  <h1>Welcome to MyBrand</h1>
+  <p>This page demonstrates an interactive fixed navigation menu. Scroll down to see the navigation bar style change on scroll, and hover over the menu items for interactive feedback.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut augue velit. Nullam vitae dui id metus vestibulum placerat. Donec posuere tortor a purus maximus dapibus. Curabitur quis augue augue. Mauris mollis quam quis quam cursus, eu ultricies quam dapibus. Fusce dapibus orci nec augue tincidunt, in gravida neque efficitur. Nam quis maximus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sodales fringilla augue sed egestas.</p>
+  <p>Repeat some paragraphs to create scroll content...</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut augue velit. Nullam vitae dui id metus vestibulum placerat. Donec posuere tortor a purus maximus dapibus. Curabitur quis augue augue. Mauris mollis quam quis quam cursus, eu ultricies quam dapibus. Fusce dapibus orci nec augue tincidunt, in gravida neque efficitur. Nam quis maximus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sodales fringilla augue sed egestas.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut augue velit. Nullam vitae dui id metus vestibulum placerat. Donec posuere tortor a purus maximus dapibus. Curabitur quis augue augue. Mauris mollis quam quis quam cursus, eu ultricies quam dapibus. Fusce dapibus orci nec augue tincidunt, in gravida neque efficitur. Nam quis maximus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sodales fringilla augue sed egestas.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut augue velit. Nullam vitae dui id metus vestibulum placerat. Donec posuere tortor a purus maximus dapibus. Curabitur quis augue augue. Mauris mollis quam quis quam cursus, eu ultricies quam dapibus. Fusce dapibus orci nec augue tincidunt, in gravida neque efficitur. Nam quis maximus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sodales fringilla augue sed egestas.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut augue velit. Nullam vitae dui id metus vestibulum placerat. Donec posuere tortor a purus maximus dapibus. Curabitur quis augue augue. Mauris mollis quam quis quam cursus, eu ultricies quam dapibus. Fusce dapibus orci nec augue tincidunt, in gravida neque efficitur. Nam quis maximus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque sodales fringilla augue sed egestas.</p>
+</main>
+
+<script>
+  (function() {
+    const header = document.getElementById('page-header');
+    const scrollThreshold = 50;
+    let lastScroll = 0;
+    function onScroll() {
+      const currentScroll = window.scrollY;
+      if (currentScroll > scrollThreshold) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    }
+
+ window.addEventListener('scroll', onScroll, { passive: true });
+    // initial check in case page is loaded scrolled
+    onScroll();
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
